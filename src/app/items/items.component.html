@@ -1,0 +1,45 @@
+<div class="input-container">
+    <input class="input" type="text" placeholder="Task title" #itemTitle>
+    <input class="input" type="text" placeholder="Task Description" #itemDesc>
+
+    <button class="button-true" 
+        (click)="add(itemTitle.value, itemDesc.value); itemTitle.value=''; itemDesc.value=''"> Add 
+    </button>
+
+</div>
+
+<ul style="list-style-type: none;">
+
+    <li *ngFor="let item of items ">
+
+        <!-- If item is not done -->
+        <div *ngIf="item.done === false" class="item">
+
+            <h3>{{ item.name }}</h3>
+
+            <p>{{ item.description }}</p>
+
+            <button   class="button-false" (click)="update(item)"> Not done </button>
+
+        </div>
+    </li>
+</ul>
+
+<ul style="list-style-type: none;">
+
+    <li *ngFor="let item of items ">
+        
+        <!-- If item is not done -->
+        <div *ngIf="item.done === true" class="finished-item">
+
+            <h3>{{ item.name }}</h3>
+
+            <p>{{ item.description }}</p>
+
+            <button class="button-true" (click)="update(item)"> Done </button>
+
+            <button class="button-delete" (click)="delete(item)"> Delete </button>
+
+        </div>
+    </li>
+</ul>

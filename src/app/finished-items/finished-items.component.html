@@ -1,0 +1,16 @@
+<ul style="list-style-type: none;">
+
+    <li *ngFor="let item of items ">
+        
+        <!-- If item is not done -->
+        <div *ngIf="item.done === true" class="item">
+
+            <h3>{{ item.name }}</h3>
+
+            <p>{{ item.description }}</p>
+
+            <button class="button-true" (click)="update(item)"> Done </button>
+
+        </div>
+    </li>
+</ul>
