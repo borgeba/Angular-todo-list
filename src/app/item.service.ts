@@ -35,4 +35,10 @@ export class ItemService {
     item.done = false;
     return this.http.post<Item>(this.itemsUrl, item, this.httpOptions);
   }
+
+  deleteItem(item: Item): void{
+    const deleteUrl = '${this.itemsUrl}/${item.id}';
+
+    this.http.delete<Item>(deleteUrl, this.httpOptions);
+  }
 }

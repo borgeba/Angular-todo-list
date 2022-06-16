@@ -46,7 +46,12 @@ export class ItemsComponent implements OnInit {
       });
   }
 
-  delete(item: Item) {
-    alert("Not implemented")
+  delete(item: Item): void {
+    // Pop item from array
+    // this.items.pop(item);
+    this.items = this.items.filter(i => i.id !== item.id);
+    
+    this.itemService.deleteItem(item);
+
   }
 }
